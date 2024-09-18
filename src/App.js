@@ -14,6 +14,9 @@ import { actionType } from "./context/reducer"
 import { motion } from "framer-motion"
 import Dashboard from "./Components/Dashboard "
 import MusicPlayer from "./Components/MusicPlayer"
+import Music from "./Components/Music"
+import MainBar from "./Components/MainBar"
+import Contact from "./Components/Contact"
 
 function App() {
     const firebaseAuth = getAuth(app);
@@ -53,8 +56,11 @@ function App() {
             <div className="h-auto min-w-[680px] bg-primary flex justify-center items-center">
                 <Routes>
                     <Route path="/login" element={<Login setAuth={setAuth} />} />
-                    <Route path="/*" element={<Home />} />
+                    <Route path="/*" element={<MainBar />} />
                     <Route path="/dashboard/*" element={<Dashboard />} />
+                    <Route path="/musics" element={<Music />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
                 {isSongPlaying && (
                     <motion.div
@@ -66,8 +72,10 @@ function App() {
                         <MusicPlayer />
                     </motion.div>
                 )}
+
             </div>
         </AnimatePresence>
+
     );
 }
 

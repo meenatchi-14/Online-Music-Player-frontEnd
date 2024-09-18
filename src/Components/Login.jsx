@@ -43,9 +43,6 @@ const Login = ({ setAuth }) => {
                         navigate("/login")
                     }
                 })
-
-
-
             }
         })
     }
@@ -56,7 +53,11 @@ const Login = ({ setAuth }) => {
     }, [])
     return (
         <div className="relative w-screen h-screen">
-            <img src={LoginBg} type="img/png" className="w-full h-full object-cover" />
+            <img
+                src={LoginBg}
+                type="img/png"
+                className="w-full h-full object-cover" />
+
             <div className="absolute inset-0 flex items-center justify-center p-4">
                 <div
                     className="w-full md:w-375 p-4 bg-lightOverlay drop-shadow-2xl rounded-md backdrop-blur-md 
@@ -66,6 +67,7 @@ const Login = ({ setAuth }) => {
                         onClick={loginWithGoogle}
                         className="flex items-center justify-center  gap-2 px-4 py-2 rounded-md 
           bg-cardOverlay cursor-pointer hover:bg-card hover:shadow-md hover:font-semibold duration-100 ease-in-out transition-all">
+
                         <FcGoogle />
                         Sign in Google
                     </div>

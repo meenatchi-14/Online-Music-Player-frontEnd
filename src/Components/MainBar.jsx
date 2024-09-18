@@ -218,7 +218,7 @@ const DashboardSongs = () => {
 
 
 
-const Home = () => {
+const MainBar = () => {
     return (
         <div className="w-full h-full flex flex-col items-center justify-center bg-primary">
             <Header />
@@ -231,4 +231,4 @@ const Home = () => {
 
 
 
-export default Home
+export default MainBar

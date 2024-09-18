@@ -1,5 +1,16 @@
-/* .app-content {
-    display: flex;
+/* .app {
+    color: #ffd6ff;
+    color: #d7d7fe;
+    color: #ffd6db;
+    color: #d2f9db;
+    color: #e3f5ff;
+    color: #ffffcb;
+} */
+/* p{
+    position:static ;
+} */
+
+/* .app-content     display: flex;
     min-width: 300px;
     height: auto;
     background-color: hsl(235, 73%, 77%);

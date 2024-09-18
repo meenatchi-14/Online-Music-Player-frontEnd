@@ -15,8 +15,10 @@ module.exports = {
         656: "656px",
         880: "880px",
         508: "508px",
+
       },
       height: {
+        50: "50px",
         80: "80px",
         150: "150px",
         225: "225px",
@@ -50,13 +52,13 @@ module.exports = {
         primary: "rgb(221 214 254)",
         cardOverlay: "rgb(253 186 116)",
         darkOverlay: "rgba(0,0,0,0.5)",
-        lightOverlay: "rgb(46 16 101)",
+        lightOverlay: "rgb(227, 161, 81)",
         lighttextGray: "#9ca0ab",
         card: "rgba(256,256,256,0.8)",
         cartBg: "#282a2c",
         cartItem: "#2e3033",
         cartTotal: "#343739",
-        loaderOverlay: "rgba(256,256,256,0.1)",
+        loaderOverlay: "rgba(256,256,256,0.1)"
       },
     },
   },
