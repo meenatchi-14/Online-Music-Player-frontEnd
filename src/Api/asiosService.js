@@ -1,7 +1,7 @@
 
 import axios from "axios"
 
-const baseURL = "http://localhost:9695"
+const baseURL = "http://localhost:9695";
 
 export const validateUser = async (token) => {
     try {
@@ -87,11 +87,19 @@ export const deleteAlbumById = async (albumId) => {
         return null;
     }
 };
+export const deleteArtistById = async (artistId) => {
+    try {
+        const res = axios.delete(`${baseURL}/app/artists/delete/${artistId}`);
+        return res;
+    } catch (error) {
+        return null;
+    }
+};
 
 export const saveNewAlbum = async (data) => {
     try {
         const res = axios.post(`${baseURL}/app/albums/save`, { ...data });
-        return (await res).data.album;
+        return (await res).data.data;
     } catch (error) {
         return null;
     }
@@ -100,7 +108,7 @@ export const saveNewAlbum = async (data) => {
 export const saveNewSong = async (data) => {
     try {
         const res = axios.post(`${baseURL}/app/songs/save`, { ...data });
-        return (await res).data.song;
+        return (await res).data.data;
     } catch (error) {
         return null;
     }
@@ -108,9 +116,18 @@ export const saveNewSong = async (data) => {
 
 export const saveNewArtist = async (data) => {
     try {
-        const res = axios.post(`${baseURL}app/artists/save`, { ...data });
-        return (await res).data.artist;
+        const res = axios.post(`${baseURL}/app/artists/save`, { ...data });
+        return (await res).data.data;
     } catch (error) {
         return null;
     }
 };
+
+export const getFavouritesSong = async (data) => {
+    try {
+        const res = axios.get(`${baseURL}/app/songs/getFavouritesSongs`, { ...data });
+        return res.data;
+    } catch (error) {
+        return null;
+    }
+}

@@ -63,7 +63,7 @@ const DashboardHome = () => {
     }, []);
 
     return (
-        <div className="w-full p-6 flex items-center justify-evenly flex-wrap">
+        <div className="home w-full p-6  gap-3 flex items-center justify-evenly flex-wrap width ">
             <DashboardCard
                 icon={<FaUser className="text-3xl text-textColor" />}
                 name={"Users"}
@@ -76,12 +76,12 @@ const DashboardHome = () => {
             />
             <DashboardCard
                 icon={<RiUserStarFill className="text-3xl text-textColor" />}
-                name={"Artist"}
+                name={"Artists"}
                 count={allArtists?.length > 0 ? allArtists?.length : 0}
             />
             <DashboardCard
                 icon={<GiMusicalNotes className="text-3xl text-textColor" />}
-                name={"Album"}
+                name={"Albums"}
                 count={allAlbums?.length > 0 ? allAlbums?.length : 0}
             />
         </div>

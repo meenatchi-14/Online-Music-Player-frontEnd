@@ -1,14 +1,60 @@
-/* .app {
-    color: #ffd6ff;
-    color: #d7d7fe;
-    color: #ffd6db;
-    color: #d2f9db;
-    color: #e3f5ff;
-    color: #ffffcb;
-} */
-/* p{
-    position:static ;
-} */
+@media (width <=450px) {
+    .width {
+        width: 100%;
+    }
+
+    .img {
+        object-fit: fill;
+    }
+
+    .App-header {
+        padding: 0px;
+        margin: 0px;
+        font-size: medium;
+    }
+
+    .margin-pad {
+        padding: 2px;
+        margin: 2px;
+        justify-content: start;
+    }
+
+    .dash {
+        padding: 4px;
+        margin: 2px;
+        justify-content: start;
+    }
+
+    .App-logo {
+        display: none;
+    }
+
+    .play {
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+    }
+
+    .display {
+        width: 50%;
+    }
+
+    .home {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
+    }
+
+}
+
+
+
+
+
+
+
+
 
 /* .app-content     display: flex;
     min-width: 300px;

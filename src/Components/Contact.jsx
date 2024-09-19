@@ -4,9 +4,10 @@ import Header from './Header'
 
 const Contact = () => {
     return (
-        <div className="relative w-screen h-screen">
+        <div className="w-full h-full flex flex-col items-center justify-center bg-primary">
+
             <Header />
-            <div className='w-full h-full flex items-center justify-center bg-red-200  text-center'>
+            <div className='w-screen h-screen flex items-center justify-center bg-red-200  text-center'>
                 My Contact...
             </div>
 

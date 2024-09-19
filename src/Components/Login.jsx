@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import "../index.css"
+import "../App.css"
 import React, { useEffect } from 'react'
 import { app } from '../config/firebase.config'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
@@ -52,7 +53,7 @@ const Login = ({ setAuth }) => {
         }
     }, [])
     return (
-        <div className="relative w-screen h-screen">
+        <div className="width dash w-screen h-screen ">
             <img
                 src={LoginBg}
                 type="img/png"

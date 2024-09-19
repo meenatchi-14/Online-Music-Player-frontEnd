@@ -76,14 +76,13 @@ const MusicPlayer = () => {
     }, [song]);
 
     return (
-        <div className="w-full full flex items-center gap-3 overflow-hidden">
+        <div className="w-full h-full flex items-center gap-3 overflow-auto tablet">
             <div
-                className={`w-full full items-center gap-3 p-4 ${miniPlayer ? "absolute top-40" : "flex relative"
-                    }`}
+                className={`w-full full items-center gap-3 p-4 ${miniPlayer ? "absolute top-40" : "flex relative"}`}
             >
                 <img
                     src={allSongs[song]?.imageURL}
-                    className="w-40 h-20 object-cover rounded-md"
+                    className="w-40 h-20 object-cover rounded-md App-logo"
                     alt=""
                 />
                 <div className="flex items-start flex-col">
@@ -140,8 +139,8 @@ const MusicPlayer = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     className="fixed right-2 bottom-2 "
                 >
-                    <div className="w-40 h-40 rounded-full flex items-center justify-center  relative ">
-                        <div className="absolute inset-0 rounded-full bg-red-600 blur-xl animate-pulse"></div>
+                    <div className="w-40 h-40 rounded-full flex items-center justify-center play ">
+                        <div className=" inset-0 rounded-full bg-red-600 blur-xl animate-pulse play"></div>
                         <img
                             onClick={togglePlayer}
                             src={allSongs[song]?.imageURL}
@@ -185,7 +184,7 @@ export const PlayListCard = () => {
     };
 
     return (
-        <div className=" left-4 bottom-24 gap-2 py-2 w-350 max-w-[350px] h-510 max-h-[510px] flex flex-col overflow-y-scroll scrollbar-thin rounded-md shadow-md bg-primary">
+        <div className="play left-4 bottom-24 gap-2 py-2  max-h-[510px] flex flex-col overflow-y-scroll scrollbar-thin rounded-md shadow-md bg-primary">
             {allSongs.length > 0 ? (
                 allSongs.map((music, index) => (
                     <motion.div

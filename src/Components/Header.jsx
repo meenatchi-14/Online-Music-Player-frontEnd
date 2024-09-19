@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+import "../index.css"
+import "../App.css"
 import React, { useState } from "react";
 import { Logo } from "../assets/img";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -27,12 +29,12 @@ const Header = () => {
     };
 
     return (
-        <header className="flex items-center w-full p-4 md:py-2 md:px-6">
+        <header className="App-header flex items-center w-full p-4 md:py-2 md:px-6">
             <NavLink to={"/"}>
-                <img src={Logo} alt="Logo" className="w-16" />
+                <img src={Logo} alt="Logo" className="w-16 App-logo" />
             </NavLink>
             <ul className="flex items-center justify-center ml-7">
-                <li className="mx-6 text-lg">
+                <li className="mx-6 text-lg margin-pad">
                     <NavLink
                         to={"/home"}
                         className={({ isActive }) =>
@@ -42,7 +44,7 @@ const Header = () => {
                         Home
                     </NavLink>
                 </li>
-                <li className="mx-6 text-lg">
+                <li className="mx-6 text-lg margin-pad">
                     <NavLink
                         to={"/musics"}
                         className={({ isActive }) =>
@@ -53,7 +55,7 @@ const Header = () => {
                     </NavLink>
                 </li>
 
-                <li className="mx-6 text-lg ml-6">
+                <li className="mx-6 text-lg ml-6 margin-pad">
                     <NavLink
                         to={"/contact"}
                         className={({ isActive }) =>
@@ -67,10 +69,10 @@ const Header = () => {
             <div
                 onMouseEnter={() => setIsMenu(true)}
                 onMouseLeave={() => setIsMenu(false)}
-                className=" flex items-center ml-auto cursor-pointer gap-2 abolute mr-0"
+                className=" flex items-center ml-auto cursor-pointer gap-2 abolute mr-0 App-header"
             >
                 <img
-                    src={user?.user.imageURL}
+                    src={user?.user?.imageURL}
                     className="w-12 h-12 min-w-[44px] object-cover rounded-full shadow-lg"
                     alt=""
                     referrerPolicy="no-referrer"

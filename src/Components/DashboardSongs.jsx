@@ -117,8 +117,8 @@ export const SongCard = ({ data, index }) => {
             </div>
 
             <p className="text-base text-center text-headingColor font-semibold my-2">
-                {data.name.length > 25 ? `${data.name.slice(0, 25)}` : data.name}
-                <span className="block text-sm text-gray-400 my-1">{data.artist}</span>
+                {data.name.length > 25 ? `${data.name.slice(0, 25)}` : data?.name}
+                <span className="block text-sm text-gray-400 my-1">{data?.artist}</span>
             </p>
 
             <div className="w-full absolute bottom-2 right-2 flex items-center justify-between px-4">
@@ -173,12 +173,12 @@ const DashboardSongs = () => {
 
     return (
         <div className="w-full p-4 flex items-center justify-center flex-col">
-            <div className="w-full flex justify-center items-center gap-24">
+            <div className="w-full flex justify-center items-center gap-24 home">
                 <NavLink
                     to={"/dashboard/newSong"}
-                    className="flex items-center px-4 py-3 border rounded-md border-gray-300 hover:border-gray-400 hover:shadow-md cursor-pointer"
+                    className="flex items-center px-4 py-3 border rounded-md border-gray-300 hover:border-gray-400 hover:font-bold hover:bg-green-400 hover:shadow-md cursor-pointer home"
                 >
-                    <IoAdd />
+                    <button>ADD HERE...</button>
                 </NavLink>
                 <input
                     type="text"

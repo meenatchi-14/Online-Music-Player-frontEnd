@@ -5,10 +5,8 @@ import { PlayListCard } from './MusicPlayer'
 
 function Music() {
     return (
-        <div className="relative w-screen h-screen">
-            <div className='flex text-center items-center justify-center'>
-                <Header />
-            </div>
+        <div className="w-full h-full flex flex-col items-center justify-center bg-primary">
+            <Header />
             <div className='flex text-center items-center justify-center'>
                 <PlayListCard />
 

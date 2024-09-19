@@ -216,7 +216,7 @@ const DashboardNewSong = () => {
             const data = {
                 name: songName,
                 imageURL: songImageUrl,
-                songUrl: audioAsset,
+                songURL: audioAsset,
                 album: albumFilter,
                 artist: artistFilter,
                 language: languageFilter,
@@ -238,10 +238,10 @@ const DashboardNewSong = () => {
             setSongName("");
             setSongImageUrl(null);
             setAudioAsset(null);
-            dispatch({ type: actionType.SET_ARTIST_FILTER, artistFilter: null });
-            dispatch({ type: actionType.SET_LANGUAGE_FILTER, languageFilter: null });
-            dispatch({ type: actionType.SET_ALBUM_FILTER, albumFilter: null });
-            dispatch({ type: actionType.SET_FILTER_TERM, filterTerm: null });
+            dispatch({ type: actionType.SET_ARTIST_FILTER, artistFilter });
+            dispatch({ type: actionType.SET_LANGUAGE_FILTER, languageFilter });
+            dispatch({ type: actionType.SET_ALBUM_FILTER, albumFilter });
+            dispatch({ type: actionType.SET_FILTER_TERM, filterTerm });
             setDuration(null);
         }
     };
@@ -250,7 +250,7 @@ const DashboardNewSong = () => {
         <div className="flex items-center justify-center p-4 border border-gray-300 rounded-md">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
                 <div className="flex flex-col items-center justify-center gap-4">
-                    <div className="text-blue-800 ">Adding New Song here... </div>
+                    <div className="text-blue-800 font-bold m-4">Adding New Song here... </div>
                     <input
                         type="text"
                         placeholder="Type your song name"
@@ -410,8 +410,8 @@ export const AddNewArtist = () => {
                 instagram: instagram,
             };
             saveNewArtist(data).then((res) => {
-                getAllArtists().then((artistData) => {
-                    dispatch({ type: actionType.SET_ALL_ARTISTS, allArtists: artistData.data });
+                getAllArtists().then((artist) => {
+                    dispatch({ type: actionType.SET_ALL_ARTISTS, allArtists: artist.data });
                 });
             });
             setAlert("success");
@@ -426,7 +426,10 @@ export const AddNewArtist = () => {
 
     return (
         <div className="flex items-center justify-evenly w-full flex-wrap">
+            <div className="text-blue-800 font-bold m-4">Adding New Artist here... </div>
+
             <div className="bg-card  backdrop-blur-md w-full lg:w-225 h-225 rounded-md border-2 border-dotted border-gray-300 cursor-pointer">
+
                 {isArtist && <ImageLoader progress={artistProgress} />}
                 {!isArtist && (
                     <>
@@ -525,20 +528,20 @@ export const AddNewArtist = () => {
 };
 
 export const AddNewAlbum = () => {
-    const [isArtist, setIsArtist] = useState(false);
+    const [isAlbum, setIsAlbum] = useState(false);
     const [artistProgress, setArtistProgress] = useState(0);
 
     const [alert, setAlert] = useState(false);
     const [alertMsg, setAlertMsg] = useState(null);
-    const [artistCoverImage, setArtistCoverImage] = useState(null);
+    const [albumCoverImage, setAlbumCoverImage] = useState(null);
 
-    const [artistName, setArtistName] = useState("");
+    const [albumName, setAlbumName] = useState("");
 
-    const [{ allArtists }, dispatch] = useStateValue();
+    const [{ allAlbums }, dispatch] = useStateValue();
 
     const deleteImageObject = (songURL) => {
-        setIsArtist(true);
-        setArtistCoverImage(null);
+        setIsAlbum(true);
+        setAlbumCoverImage(null);
         const deleteRef = ref(storage, songURL);
         deleteObject(deleteRef).then(() => {
             setAlert("success");
@@ -546,22 +549,22 @@ export const AddNewAlbum = () => {
             setTimeout(() => {
                 setAlert(null);
             }, 4000);
-            setIsArtist(false);
+            setIsAlbum(false);
         });
     };
 
     const saveArtist = () => {
-        if (!artistCoverImage || !artistName) {
+        if (!albumCoverImage || !albumName) {
             setAlert("error");
             setAlertMsg("Required fields are missing");
             setTimeout(() => {
                 setAlert(null);
             }, 4000);
         } else {
-            setIsArtist(true);
+            setIsAlbum(true);
             const data = {
-                name: artistName,
-                imageURL: artistCoverImage,
+                name: albumName,
+                imageURL: albumCoverImage,
             };
             saveNewAlbum(data).then((res) => {
                 getAllAlbums().then((albumData) => {
@@ -571,31 +574,34 @@ export const AddNewAlbum = () => {
                     });
                 });
             });
-            setIsArtist(false);
-            setArtistCoverImage(null);
-            setArtistName("");
+            setAlert("success");
+            setAlertMsg("Data saved successfully");
+            setIsAlbum(false);
+            setAlbumCoverImage(null);
+            setAlbumName("");
         }
     };
 
     return (
         <div className="flex items-center justify-evenly w-full flex-wrap">
+            <div className="text-blue-800 font-bold m-4">Adding New Album here... </div>
             <div className="bg-card  backdrop-blur-md w-full lg:w-225 h-225 rounded-md border-2 border-dotted border-gray-300 cursor-pointer">
-                {isArtist && <ImageLoader progress={artistProgress} />}
-                {!isArtist && (
+                {isAlbum && <ImageLoader progress={artistProgress} />}
+                {!isAlbum && (
                     <>
-                        {!artistCoverImage ? (
+                        {!albumCoverImage ? (
                             <ImageUploader
-                                setImageURL={setArtistCoverImage}
+                                setImageURL={setAlbumCoverImage}
                                 setAlert={setAlert}
                                 alertMsg={setAlertMsg}
-                                isLoading={setIsArtist}
+                                isLoading={setIsAlbum}
                                 setProgress={setArtistProgress}
                                 isImage={true}
                             />
                         ) : (
                             <div className="relative w-full h-full overflow-hidden rounded-md">
                                 <img
-                                    src={artistCoverImage}
+                                    src={albumCoverImage}
                                     alt="uploaded image"
                                     className="w-full h-full object-cover"
                                 />
@@ -603,7 +609,7 @@ export const AddNewAlbum = () => {
                                     type="button"
                                     className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl cursor-pointer outline-none hover:shadow-md  duration-500 transition-all ease-in-out"
                                     onClick={() => {
-                                        deleteImageObject(artistCoverImage);
+                                        deleteImageObject(albumCoverImage);
                                     }}
                                 >
                                     <MdDelete className="text-white" />
@@ -619,12 +625,12 @@ export const AddNewAlbum = () => {
                     type="text"
                     placeholder="Album Name"
                     className="w-full lg:w-300 p-3 rounded-md text-base font-semibold text-textColor outline-none shadow-sm border border-gray-300 bg-transparent"
-                    value={artistName}
-                    onChange={(e) => setArtistName(e.target.value)}
+                    value={albumName}
+                    onChange={(e) => setAlbumName(e.target.value)}
                 />
 
                 <div className="w-full lg:w-300 flex items-center justify-center lg:justify-end">
-                    {isArtist ? (
+                    {isAlbum ? (
                         <DisabledButton />
                     ) : (
                         <motion.button

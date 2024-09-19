@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
@@ -6,8 +7,10 @@ import { useStateValue } from "../context/StateProvider";
 //import { Link } from "react-router-dom";
 import { IoLogoInstagram, IoLogoTwitter } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
-import { getAllArtists } from "../Api/asiosService";
+import { deleteArtistById, getAllArtists } from "../Api/asiosService";
 import { actionType } from "../context/reducer";
+import AlertSuccess from "./AlertSuccess";
+import AlertError from "./AlertError";
 
 const DashboardArtist = () => {
     const [{ allArtists }, dispatch] = useStateValue();
@@ -21,7 +24,7 @@ const DashboardArtist = () => {
     }, []);
 
     return (
-        <div className="w-full p-4 flex items-center justify-center flex-col">
+        <div className="flex">
             <div className="relative w-full gap-3  my-4 p-4 py-12 border border-gray-300 rounded-md flex flex-wrap justify-evenly">
                 {allArtists &&
                     allArtists.map((data, index) => (
@@ -36,6 +39,32 @@ const DashboardArtist = () => {
 
 export const ArtistCard = ({ data, index }) => {
     const [isDelete, setIsDelete] = useState(false);
+    const [alert, setAlert] = useState(false);
+    const [alertMsg, setAlertMsg] = useState(null);
+    const [{ allArtists }, dispatch] = useStateValue();
+    const deleteObject = (id) => {
+        deleteArtistById(id).then((res) => {
+            if (res.data.success) {
+                setAlert("success");
+                setAlertMsg(res.data.msg);
+                getAllArtists().then((data) => {
+                    dispatch({
+                        type: actionType.SET_ALL_SONGS,
+                        allSongs: data.data,
+                    });
+                });
+                setTimeout(() => {
+                    setAlert(false);
+                }, 4000);
+            } else {
+                setAlert("error");
+                setAlertMsg(res.data.msg);
+                setTimeout(() => {
+                    setAlert(false);
+                }, 4000);
+            }
+        });
+    };
     return (
         <motion.div
             initial={{ opacity: 0, translateX: -50 }}
@@ -44,7 +73,7 @@ export const ArtistCard = ({ data, index }) => {
             className="relative w-44 min-w-180 px-2 py-4 gap-3 cursor-pointer hover:shadow-xl hover:bg-card bg-gray-100 shadow-md rounded-lg flex flex-col items-center"
         >
             <img
-                src={data?.imageURL}
+                src={data.imageURL}
                 className="w-full h-40 object-cover rounded-md"
                 alt=""
             />
@@ -53,12 +82,12 @@ export const ArtistCard = ({ data, index }) => {
             <div className="flex items-center gap-4">
                 <a href={data.instagram} target="_blank">
                     <motion.i whileTap={{ scale: 0.75 }}>
-                        <IoLogoInstagram className="text-gray-500 hover:text-headingColor text-xl" />
+                        <IoLogoInstagram className="text-gray-500 hover:text-headingColor text-xl App-link" />
                     </motion.i>
                 </a>
                 <a href={data.twitter} target="_blank" >
                     <motion.i whileTap={{ scale: 0.75 }}>
-                        <IoLogoTwitter className="text-gray-500 hover:text-headingColor text-xl" />
+                        <IoLogoTwitter className="text-gray-500 hover:text-headingColor text-xl App-link" />
                     </motion.i>
                 </a>
             </div>
@@ -82,7 +111,10 @@ export const ArtistCard = ({ data, index }) => {
                     </p>
                     <div className="flex items-center w-full justify-center gap-3">
                         <div className="bg-red-300 px-3 rounded-md">
-                            <p className="text-headingColor text-sm">Yes</p>
+                            <p className="text-headingColor text-sm "
+                                // onClick={() => console.log("no deleting anything")}
+                                onClick={() => deleteObject(data._id)}
+                            >Yes</p>
                         </div>
                         <div
                             className="bg-green-300 px-3 rounded-md"
@@ -92,6 +124,15 @@ export const ArtistCard = ({ data, index }) => {
                         </div>
                     </div>
                 </motion.div>
+            )}
+            {alert && (
+                <>
+                    {alert === "success" ? (
+                        <AlertSuccess msg={alertMsg} />
+                    ) : (
+                        <AlertError msg={alertMsg} />
+                    )}
+                </>
             )}
         </motion.div>
     );

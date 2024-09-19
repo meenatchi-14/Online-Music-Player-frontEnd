@@ -41,7 +41,6 @@ export const AlbumCard = ({ data, index }) => {
     const [alertMsg, setAlertMsg] = useState(null);
     const [{ allAlbums }, dispatch] = useStateValue();
     const deleteObject = (id) => {
-        console.log(id);
         deleteAlbumById(id).then((res) => {
             console.log(res.data);
             if (res.data.success) {
@@ -79,7 +78,7 @@ export const AlbumCard = ({ data, index }) => {
                 alt=""
             />
 
-            <p className="text-base text-textColor">{data.name}</p>
+            <p className="text-base text-textColor">{data?.name}</p>
 
             <motion.i
                 className="absolute bottom-2 right-2"
@@ -102,7 +101,9 @@ export const AlbumCard = ({ data, index }) => {
                     <div className="flex items-center w-full justify-center gap-3">
                         <div className="bg-red-300 px-3 rounded-md">
                             <p className="text-headingColor text-sm"
-                                onClick={() => deleteObject(data._id)}>Yes</p>
+                                // onClick={() => console.log("no deleting anything")}
+                                onClick={() => deleteObject(data._id)}
+                            >Yes</p>
                         </div>
                         <div
                             className="bg-green-300 px-3 rounded-md"

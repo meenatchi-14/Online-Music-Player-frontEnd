@@ -14,7 +14,7 @@ const Dashboard = () => {
     return (
         <div className="w-full h-auto flex flex-col items-center justify-center">
             <Header />
-            <div className="w-[60%] p-4 my-2 flex items-center justify-evenly">
+            <div className="w-[60%] p-4 my-2 flex items-center justify-evenly dash">
 
                 <NavLink to={"/dashboard/dashHome"} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>
                     <IoHome className='text-2xl text-textcolor' /></NavLink>

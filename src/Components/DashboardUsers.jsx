@@ -149,7 +149,7 @@ const DashboardUsers = () => {
     }, []);
 
     return (
-        <div className="w-full p-4 flex items-center justify-center flex-col">
+        <div className="w-full p-4 flex items-center justify-center flex-col play">
             <div className="relative w-full py-12 min-h-[400px] overflow-x-scroll scrollbar-thin scrollbar-track-slate-300 scrollbar-thumb-slate-400 my-4 flex flex-col items-center justify-start p-4 border border-gray-400 rounded-md gap-3">
                 <div className="absolute top-4 left-4">
                     <p className="text-sm font-semibold text-textColor">
@@ -158,7 +158,7 @@ const DashboardUsers = () => {
                     </p>
                 </div>
                 {/* table heading */}
-                <div className="w-full min-w-[750px] flex items-center justify-between">
+                <div className="w-full min-w-[750px] flex items-center justify-between margin-pad">
                     {/* prettier-ignore */}
                     <p className="text-sm text-textColor font-semibold w-275 min-w-[160px] text-center">Image</p>
                     {/* prettier-ignore */}
