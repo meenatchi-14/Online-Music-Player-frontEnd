@@ -7,7 +7,7 @@ function Music() {
     return (
         <div className="w-full h-full flex flex-col items-center justify-center bg-primary">
             <Header />
-            <div className='flex text-center items-center justify-center'>
+            <div className='w-screen h-screen flex items-center justify-center bg-red-100 text-center'>
                 <PlayListCard />
 
             </div>

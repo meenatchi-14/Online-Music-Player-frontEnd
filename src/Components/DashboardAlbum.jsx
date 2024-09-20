@@ -27,13 +27,14 @@ const DashboardAlbum = () => {
                 {allAlbums &&
                     allAlbums.map((data, index) => (
                         <>
-                            <AlbumCard key={index} data={data} index={index} />
+                            <AlbumCard data={data} index={index} />
                         </>
                     ))}
             </div>
         </div>
     );
 };
+export default DashboardAlbum;
 
 export const AlbumCard = ({ data, index }) => {
     const [isDelete, setIsDelete] = useState(false);
@@ -129,4 +130,3 @@ export const AlbumCard = ({ data, index }) => {
     );
 };
 
-export default DashboardAlbum;

@@ -172,7 +172,7 @@ const DashboardSongs = () => {
     }, [songFilter]);
 
     return (
-        <div className="w-full p-4 flex items-center justify-center flex-col">
+        <div className="w-full h-auto p-4 flex items-center justify-center flex-col">
             <div className="w-full flex justify-center items-center gap-24 home">
                 <NavLink
                     to={"/dashboard/newSong"}
