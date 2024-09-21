@@ -26,6 +26,12 @@ const DashboardArtist = () => {
     return (
         <div className="flex">
             <div className="relative w-full gap-3  my-4 p-4 py-12 border border-gray-300 rounded-md flex flex-wrap justify-evenly">
+                <div className="absolute top-4 left-4">
+                    <p className="text-sm font-semibold text-textColor">
+                        Count :{" "}
+                        <span className="text-xl font-bold">{allArtists?.length} </span>
+                    </p>
+                </div>
                 {allArtists &&
                     allArtists.map((data, index) => (
                         <>
