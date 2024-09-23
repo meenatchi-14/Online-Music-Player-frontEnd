@@ -35,7 +35,7 @@ const DashboardArtist = () => {
                 {allArtists &&
                     allArtists.map((data, index) => (
                         <>
-                            <ArtistCard key={index} data={data} index={index} />
+                            <ArtistCard  data={data} key={index} />
                         </>
                     ))}
             </div>

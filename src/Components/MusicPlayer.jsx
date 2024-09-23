@@ -184,7 +184,7 @@ export const PlayListCard = () => {
     };
 
     return (
-        <div className="play left-4 bottom-24 gap-2 py-2  max-h-[510px] flex flex-col overflow-y-scroll scrollbar-thin rounded-md shadow-md bg-primary">
+        <div className="play left-4 bottom-24 gap-2 py-2  max-h-[510px] flex flex-col overflow-y-scroll scrollbar-thin rounded-md shadow-md bg-primary tablet">
             {allSongs.length > 0 ? (
                 allSongs.map((music, index) => (
                     <motion.div

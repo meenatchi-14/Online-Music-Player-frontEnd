@@ -12,9 +12,9 @@ import DashboardNewSong from './DashboardNewSong'
 
 const Dashboard = () => {
     return (
-        <div className="w-screen h-screen flex flex-col ">
+        <div className="w-screen h-screen flex flex-col items-center">
             <Header />
-            <div className="w-[60%] p-4 my-2 flex items-center justify-evenly">
+            <div className="w-[60%] p-4 my-2 flex items-center justify-evenly text-center">
 
                 <NavLink to={"/dashboard/dashHome"} className={({ isActive }) => isActive ? isActiveStyles : isNotActiveStyles}>
                     <IoHome className='text-2xl text-textcolor' /></NavLink>
