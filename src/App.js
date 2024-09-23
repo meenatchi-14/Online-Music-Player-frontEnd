@@ -53,7 +53,7 @@ function App() {
     }, []);
     return (
         <AnimatePresence mode="wait">
-            <div className="w-screen h-auto min-w-[680px] bg-primary flex justify-center items-center">
+            <div className="h-auto min-w-[450px] bg-primary flex justify-center items-center">
                 <Routes>
                     <Route path="/login" element={<Login setAuth={setAuth} />} />
                     <Route path="/*" element={<MainBar />} />

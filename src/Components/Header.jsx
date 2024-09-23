@@ -31,7 +31,7 @@ const Header = () => {
     return (
         <header className="App-header flex items-center w-full p-4 md:py-2 md:px-6">
             <NavLink to={"/"}>
-                <img src={Logo} alt="Logo" className="w-16 App-logo" />
+                <img src={Logo} alt="Logo" className="w-16" />
             </NavLink>
             <ul className="flex items-center justify-center ml-7">
                 <li className="mx-6 text-lg margin-pad">
@@ -69,7 +69,7 @@ const Header = () => {
             <div
                 onMouseEnter={() => setIsMenu(true)}
                 onMouseLeave={() => setIsMenu(false)}
-                className=" flex items-center ml-auto cursor-pointer gap-2 abolute mr-0 App-header"
+                className=" flex items-center ml-auto cursor-pointer gap-2 abolute mr-0 "
             >
                 <img
                     src={user?.user?.imageURL}
