@@ -175,7 +175,7 @@ const DashboardUsers = () => {
                 {/* table body content */}
                 {allUsers &&
                     allUsers?.map((data, i) => (
-                        <DashboardUserCard data={data} index={i} />
+                        <DashboardUserCard data={data} key={i} />
                     ))}
             </div>
         </div>

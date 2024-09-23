@@ -31,9 +31,9 @@ const DashboardAlbum = () => {
                     </p>
                 </div>
                 {allAlbums &&
-                    allAlbums.map((data, index) => (
+                    allAlbums.map((data, i) => (
                         <>
-                            <AlbumCard data={data} index={index} />
+                            <AlbumCard data={data} key={i} />
                         </>
                     ))}
             </div>
