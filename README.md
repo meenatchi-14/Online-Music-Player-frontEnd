@@ -1,24 +1,23 @@
 # Online-Music-Player
 
-
 ## frontEnd:
 
-- [@FrontEnd-gitHub](https://github.com/meenatchi-14/Online-Music-Player-frontEnd.git  )
-- [@Netlify]()
+- [@FrontEnd-gitHub](https://github.com/meenatchi-14/Online-Music-Player-frontEnd.git)
+- [@Netlify](https://reliable-bombolone-4c6822.netlify.app)
 
 ## BackEnd:
 
-The frontend react application consuming the api from Online-Music-Player-backEnd 
+The frontend react application consuming the api from Online-Music-Player-backEnd
 <br><br>
-Render : 
-<br><br>
- To consume api created in the Online-Music-Player-backEnd repository using Online-Music-Player-frontEnd Appilication
+Render :
+
+- [@BackEnd-Render](https://online-music-player-backend-uwhm.onrender.com/)
+  <br><br>
+  To consume api created in the Online-Music-Player-backEnd repository using Online-Music-Player-frontEnd Appilication
 
 <br> Link to backend :
 
-- [@BackEnd-gitHub](https://github.com/meenatchi-14/Online-Music-Player-backEnd.git )
-
-
+- [@BackEnd-gitHub](https://github.com/meenatchi-14/Online_Music_Player_BackEnd.git)
 
 ## Available Scripts
 
@@ -63,6 +62,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 https://github.com/meenatchi-14/passwordBackEnd.git
+
 ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
