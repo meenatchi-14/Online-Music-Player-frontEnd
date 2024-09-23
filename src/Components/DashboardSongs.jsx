@@ -5,6 +5,7 @@ import { useStateValue } from '../context/StateProvider';
 import { deleteSongById, getAllSongs } from '../Api/asiosService';
 import { actionType } from '../context/reducer';
 import { AiOutlineClear } from "react-icons/ai";
+import { IoMdSearch } from "react-icons/io";
 import { motion } from "framer-motion";
 import { IoAdd, IoTrash } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
@@ -172,24 +173,28 @@ const DashboardSongs = () => {
     }, [songFilter]);
 
     return (
-        <div className="w-full h-auto p-4 flex items-center justify-center flex-col">
-            <div className="w-full flex justify-center items-center gap-24 home">
-                <NavLink
-                    to={"/dashboard/newSong"}
-                    className="flex items-center px-4 py-3 border rounded-md border-gray-300 hover:border-gray-400 hover:font-bold hover:bg-green-400 hover:shadow-md cursor-pointer home"
-                >
-                    <button>ADD HERE...</button>
-                </NavLink>
-                <input
-                    type="text"
-                    placeholder="Search here"
-                    className={`w-52 px-4 py-2 border ${isFocus ? "border-gray-500 shadow-md" : "border-gray-300"
-                        } rounded-md bg-transparent outline-none duration-150 transition-all ease-in-out text-base text-textColor font-semibold`}
+        <div className="w-full h-auto p-4 flex flex-col">
+            <div className="w-full gap-24 home flex justify-center items-center ">
+                <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 m-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+        </div>
+        <input type="search"
+               id="default-search"
+               placeholder="Search here"
+                    className={`w-50 p-4 ps-10 px-4 py-2 ml-5 border ${isFocus ? "border-gray-500 shadow-md" : "border-gray-300"}
+                 rounded-md bg-transparent outline-none duration-150 transition-all ease-in-out text-base text-textColor font-semibold flex flex-col`}
                     value={songFilter}
                     onChange={(e) => setSongFilter(e.target.value)}
                     onBlur={() => setIsFocus(false)}
                     onFocus={() => setIsFocus(true)}
+                    required
                 />
+    </div>
+           
+               
 
                 {songFilter && (
                     <motion.i
@@ -204,7 +209,17 @@ const DashboardSongs = () => {
                         <AiOutlineClear className="text-3xl text-textColor cursor-pointer" />
                     </motion.i>
                 )}
+                
+                </div>
+                <div className='flex justify-end'>
+                <NavLink
+                    to={"/dashboard/newSong"}
+                    className="flex items-center px-4 py-3 border rounded-md border-gray-300 hover:border-gray-400 hover:font-bold hover:bg-green-400 hover:shadow-md cursor-pointer home"
+                >
+                    <button>ADD HERE...</button>
+                </NavLink>
             </div>
+            
 
             <div className="relative w-full  my-4 p-4 py-12 border border-gray-300 rounded-md">
                 <div className="absolute top-4 left-4">
